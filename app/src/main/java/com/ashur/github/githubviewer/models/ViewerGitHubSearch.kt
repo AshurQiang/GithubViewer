@@ -19,7 +19,10 @@ data class GitHubSearchModel(
     val htmlUrl: String,
     val language: String?,
     val description: String?,
-    val owner: GithubUserModel
+    val owner: GithubUserModel,
+    val private: Boolean = false,
+    @SerializedName("updated_at")
+    val updatedAt:String
 )
 
 data class GithubUserModel(

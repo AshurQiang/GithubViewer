@@ -21,5 +21,6 @@ sealed class ScreenPage(
 enum class Route(val type: String) {
     ROOT("root"),
     HOME("home"),
-    ME("me")
+    ME("me"),
+    ERROR("error")
 }
