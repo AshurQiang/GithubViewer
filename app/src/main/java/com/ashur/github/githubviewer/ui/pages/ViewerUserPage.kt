@@ -72,8 +72,6 @@ fun ViewerUserPage(viewModel: ViewerViewModel) {
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 item {
-
-
                     Card(
                         colors = CardDefaults.cardColors(
                             containerColor = MaterialTheme.colorScheme.surfaceVariant
