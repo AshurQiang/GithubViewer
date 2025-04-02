@@ -19,7 +19,10 @@
     <string name="user_repo_private">Private</string>
     <string name="user_repo_public">Public</string>
     <string name="user_repo_update_at_time">Updated at %1$s</string>
-
+    <string name="user_logoff_title">Are you sure?</string>
+    <string name="user_logoff_content">Are you sure to logoff current session?</string>
+    <string name="user_logoff_yes">Confirm</string>
+    <string name="user_logoff_no">Cancel</string>
 
     <!--api errors-->
     <string name="api_logon_error">Logon fail, please try again.</string>

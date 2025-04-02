@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.ashur.github.githubviewer.R
 import com.ashur.github.githubviewer.models.GitHubSearchModel
+import com.ashur.github.githubviewer.ui.theme.DodgerBlue
 import com.ashur.github.githubviewer.ui.theme.labelSmall
 import com.ashur.github.githubviewer.ui.theme.subtitle
 
@@ -57,7 +58,8 @@ fun ViewerHomePageSearchItem(
             ) {
                 Text(
                     text = itemModel.name,
-                    style = subtitle
+                    style = subtitle,
+                    color = DodgerBlue
                 )
                 Spacer(Modifier.height(8.dp))
                 Row(
