@@ -20,6 +20,9 @@ class ViewerUserViewModel @Inject constructor(
     private val sharedPreferenceHelper: ViewerSharedPreferenceHelper
 ) : ViewModel() {
     private var userToken: String? = null
+    private val _loadingState: MutableStateFlow<Boolean> = MutableStateFlow(false)
+    val loadingState = _loadingState.asStateFlow()
+
     private val _errorState: MutableSharedFlow<ErrorCode?> = MutableSharedFlow()
     val apiError = _errorState
 
@@ -31,12 +34,15 @@ class ViewerUserViewModel @Inject constructor(
         userToken = sharedPreferenceHelper.loadAccessToken(context)
         userToken?.let {
             viewModelScope.launch {
+                _loadingState.value = true
                 repository.getUserRepos(it).apply {
                     onSuccess {
                         _userRepos.value = it
+                        _loadingState.value = false
                     }
                     onFailure {
                         handleServiceError(it)
+                        _loadingState.value = false
                     }
                 }
             }

@@ -22,4 +22,11 @@ class ViewerSharedPreferenceHelper @Inject constructor() {
         editor.putString(ACCESS_TOKEN_KEY, token)
         editor.apply()
     }
+
+    fun removeAccessToken(context: Context) {
+        val sharedPreferences = context.getSharedPreferences(SPACE, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove(ACCESS_TOKEN_KEY)
+        editor.apply()
+    }
 }

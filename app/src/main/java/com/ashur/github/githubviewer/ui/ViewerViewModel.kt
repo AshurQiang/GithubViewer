@@ -20,8 +20,7 @@ import javax.inject.Inject
 class ViewerViewModel @Inject constructor(
     private val repository: ViewerRepositoryImpl,
     private val sharedPreferenceHelper: ViewerSharedPreferenceHelper
-) :
-    ViewModel() {
+) : ViewModel() {
     private val _searchResult: MutableStateFlow<GitHubSearchResponse?> = MutableStateFlow(null)
     val searchResult = _searchResult.asStateFlow()
 
@@ -48,8 +47,7 @@ class ViewerViewModel @Inject constructor(
                 repository.getUserInformation(it).apply {
                     onSuccess {
                         _loginState.value = _loginState.value.copy(
-                            isLoggedIn = true,
-                            userInformation = it
+                            isLoggedIn = true, userInformation = it
                         )
                     }
                     onFailure {
@@ -64,9 +62,7 @@ class ViewerViewModel @Inject constructor(
 
 
     fun searchRepositories(
-        language: String? = null,
-        sort: String? = null,
-        forceRefresh: Boolean = true
+        language: String? = null, sort: String? = null, forceRefresh: Boolean = true
     ) {
         if (forceRefresh.not() && _searchResult.value != null) {
             return
@@ -98,5 +94,10 @@ class ViewerViewModel @Inject constructor(
         viewModelScope.launch {
             _errorState.emit(ErrorCode.NETWORK_DISCONNECT)
         }
+    }
+
+    fun logoffUser(context: Context) {
+        sharedPreferenceHelper.removeAccessToken(context)
+        _loginState.value = _loginState.value.copy(isLoggedIn = false, userInformation = null)
     }
 }
