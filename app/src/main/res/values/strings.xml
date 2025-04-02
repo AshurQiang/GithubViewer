@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GitHubViewer</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_me">Me</string>
+
+    <string name="repository_search_language_label">Language</string>
+    <string name="repository_search_sort_label">Sort</string>
+    <string name="repository_search_unknown_label">unknown</string>
+
+    <!--api errors-->
+    <string name="api_logon_error">Logon fail, please try again.</string>
+
+</resources>
