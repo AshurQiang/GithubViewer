@@ -46,9 +46,6 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil3.compose.AsyncImage
 import com.ashur.github.githubviewer.R
-import com.ashur.github.githubviewer.constants.ViewerGithubOAuth
-import com.ashur.github.githubviewer.ui.ViewerUserViewModel
-import com.ashur.github.githubviewer.ui.ViewerViewModel
 import com.ashur.github.githubviewer.ui.pages.components.ViewerLoadingView
 import com.ashur.github.githubviewer.ui.theme.DodgerBlue
 import com.ashur.github.githubviewer.ui.theme.LightGray
@@ -56,6 +53,8 @@ import com.ashur.github.githubviewer.ui.theme.PurpleGrey80
 import com.ashur.github.githubviewer.ui.theme.labelSmall
 import com.ashur.github.githubviewer.ui.theme.subtitle
 import com.ashur.github.githubviewer.ui.theme.title
+import com.ashur.github.githubviewer.ui.viewmodels.ViewerUserViewModel
+import com.ashur.github.githubviewer.ui.viewmodels.ViewerViewModel
 import com.ashur.github.githubviewer.utils.ViewerDateFormater
 
 @Composable

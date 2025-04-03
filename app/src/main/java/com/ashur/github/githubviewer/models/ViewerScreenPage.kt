@@ -22,5 +22,7 @@ enum class Route(val type: String) {
     ROOT("root"),
     HOME("home"),
     ME("me"),
-    ERROR("error")
+    ERROR("error"),
+    ISSUES("issues"),
+    ADD_ISSUE("addIssue")
 }

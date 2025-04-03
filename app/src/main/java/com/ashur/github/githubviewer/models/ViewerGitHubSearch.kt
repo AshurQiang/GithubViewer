@@ -22,10 +22,11 @@ data class GitHubSearchModel(
     val owner: GithubUserModel,
     val private: Boolean = false,
     @SerializedName("updated_at")
-    val updatedAt:String
+    val updatedAt: String
 )
 
 data class GithubUserModel(
     @SerializedName("avatar_url")
-    val avatarUrl: String
+    val avatarUrl: String,
+    val login: String
 )

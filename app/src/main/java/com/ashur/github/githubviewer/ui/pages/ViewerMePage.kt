@@ -2,7 +2,7 @@ package com.ashur.github.githubviewer.ui.pages
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import com.ashur.github.githubviewer.ui.ViewerViewModel
+import com.ashur.github.githubviewer.ui.viewmodels.ViewerViewModel
 
 @Composable
 fun ViewerMePage(viewModel: ViewerViewModel) {

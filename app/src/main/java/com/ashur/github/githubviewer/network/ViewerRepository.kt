@@ -2,9 +2,8 @@ package com.ashur.github.githubviewer.network
 
 import com.ashur.github.githubviewer.models.GitHubSearchModel
 import com.ashur.github.githubviewer.models.GitHubSearchResponse
+import com.ashur.github.githubviewer.models.ViewerGithubIssue
 import com.ashur.github.githubviewer.models.ViewerGithubUser
-import retrofit2.http.Header
-import retrofit2.http.Query
 
 interface ViewerRepository {
     suspend fun searchRepositories(
@@ -15,10 +14,14 @@ interface ViewerRepository {
     ): Result<GitHubSearchResponse>
 
     suspend fun getUserInformation(
-        @Header("Authorization") token: String
+        token: String
     ): Result<ViewerGithubUser>
 
     suspend fun getUserRepos(
-        @Header("Authorization") token: String
+        token: String
     ): Result<List<GitHubSearchModel>>
+
+    suspend fun getRepoIssues(
+        owner: String, repo: String
+    ): Result<List<ViewerGithubIssue>>
 }

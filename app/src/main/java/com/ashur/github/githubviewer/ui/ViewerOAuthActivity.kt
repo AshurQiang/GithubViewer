@@ -11,6 +11,7 @@ import com.ashur.github.githubviewer.R
 import com.ashur.github.githubviewer.constants.ViewerGithubOAuth
 import com.ashur.github.githubviewer.ui.pages.components.ViewerLoadingView
 import com.ashur.github.githubviewer.ui.theme.GitHubViewerTheme
+import com.ashur.github.githubviewer.ui.viewmodels.ViewerOAuthViewModel
 import com.ashur.github.githubviewer.utils.ViewerSharedPreferenceHelper
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -41,11 +42,13 @@ class ViewerOAuthActivity : ComponentActivity() {
                                     getString(R.string.api_logon_error),
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                finish()
                             })
                         } else {
                             Toast.makeText(
                                 this, getString(R.string.api_logon_error), Toast.LENGTH_SHORT
                             ).show()
+                            finish()
                         }
                     }
                 }

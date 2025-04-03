@@ -36,13 +36,17 @@ import com.ashur.github.githubviewer.ui.theme.subtitle
 
 @Composable
 fun ViewerHomePageSearchItem(
-    item: () -> GitHubSearchModel
+    item: () -> GitHubSearchModel,
+    onItemClicked: (item: GitHubSearchModel) -> Unit
 ) {
     val itemModel = item.invoke()
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
+        onClick = {
+            onItemClicked(itemModel)
+        },
         modifier = Modifier
             .fillMaxWidth()
             .heightIn(min = 100.dp)

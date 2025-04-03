@@ -22,14 +22,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ashur.github.githubviewer.R
 import com.ashur.github.githubviewer.constants.ViewerUIConfiguration
-import com.ashur.github.githubviewer.ui.ViewerViewModel
+import com.ashur.github.githubviewer.models.GitHubSearchModel
 import com.ashur.github.githubviewer.ui.pages.components.ViewerDropDownMenu
 import com.ashur.github.githubviewer.ui.pages.components.ViewerHomePageSearchItem
 import com.ashur.github.githubviewer.ui.theme.title
+import com.ashur.github.githubviewer.ui.viewmodels.ViewerViewModel
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
-fun ViewerHomePage(viewModel: ViewerViewModel) {
+fun ViewerHomePage(
+    viewModel: ViewerViewModel,
+    onItemClicked: (item: GitHubSearchModel) -> Unit
+) {
 
     val lazyListState = rememberLazyListState()
     val searchResult = viewModel.searchResult.collectAsState()
@@ -78,9 +82,10 @@ fun ViewerHomePage(viewModel: ViewerViewModel) {
             }
             searchResult.value?.let {
                 items(it.items.toList()) {
-                    ViewerHomePageSearchItem {
-                        it
-                    }
+                    ViewerHomePageSearchItem(
+                        item = { it },
+                        onItemClicked
+                    )
                 }
             }
         }
